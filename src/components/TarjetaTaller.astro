@@ -1,0 +1,33 @@
+---
+interface Props {
+  nombre: string;
+  descripcion: string;
+  imagen: string;
+  informacion: string;
+  mostrarDescripcion?: boolean;
+}
+const { nombre, descripcion, imagen, informacion, mostrarDescripcion = false } = Astro.props;
+---
+{mostrarDescripcion ? (
+  <details class="tarjeta-taller">
+    <summary>
+      <img src={imagen} alt="" />
+      <div class="tarjeta-contenido">
+        <h3>{nombre}</h3>
+        <p>{descripcion}</p>
+        <span class="tarjeta-accion">Ver información <span aria-hidden="true">+</span></span>
+      </div>
+    </summary>
+    <div class="tarjeta-detalle"><p>{informacion}</p><span class="tarjeta-cerrar">Pulsa para cerrar</span></div>
+  </details>
+) : (
+  <a class="tarjeta-enlace" href="/talleres" aria-label={`Ver información de los talleres: ${nombre}`}>
+    <article class="tarjeta-taller tarjeta-taller-simple">
+      <img src={imagen} alt="" />
+      <div class="tarjeta-contenido">
+        <h3>{nombre}</h3>
+        <span class="tarjeta-accion">Explorar talleres <span aria-hidden="true">→</span></span>
+      </div>
+    </article>
+  </a>
+)}

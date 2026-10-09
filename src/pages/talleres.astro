@@ -1,0 +1,14 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TarjetaTaller from '../components/TarjetaTaller.astro';
+const todosLosTalleres = [
+  { nombre: "Fotografía", descripcion: "Explora la luz y captura historias con tu cámara.", imagen: "/img/fotografia.svg", informacion: "Aprende encuadre, composición y manejo de luz con ejercicios prácticos. No necesitas experiencia previa: puedes comenzar con una cámara digital o tu teléfono." },
+  { nombre: "Cerámica", descripcion: "Da forma a tus ideas trabajando con arcilla.", imagen: "/img/ceramica.svg", informacion: "Conoce técnicas básicas de modelado a mano y crea piezas decorativas y funcionales. El taller acompaña cada proyecto desde la primera forma hasta sus acabados." },
+  { nombre: "Escritura creativa", descripcion: "Encuentra nuevas maneras de contar tus historias.", imagen: "/img/escritura.svg", informacion: "Practica escritura libre, creación de personajes y relatos breves. Compartimos ejercicios en un ambiente abierto para desarrollar tu propia voz." },
+  { nombre: "Ilustración", descripcion: "Convierte ideas en imágenes y desarrolla tu estilo.", imagen: "/img/ilustracion.svg", informacion: "Experimenta con formas, color y composición mediante ejercicios guiados. Aprende recursos de dibujo e ilustración tradicional y digital, y crea una pieza personal." }
+];
+---
+<Layout title="Espacio Cultural - Talleres">
+  <section><h1>Nuestros Talleres</h1><p>Conoce toda nuestra oferta de talleres orientados al desarrollo de la expresión artística y creativa.</p>
+  <div class="tarjetas-grid">{todosLosTalleres.map((taller) => <TarjetaTaller nombre={taller.nombre} descripcion={taller.descripcion} imagen={taller.imagen} informacion={taller.informacion} mostrarDescripcion={true} />)}</div></section>
+</Layout>
